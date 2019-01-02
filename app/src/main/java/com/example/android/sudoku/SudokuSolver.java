@@ -1,10 +1,5 @@
 package com.example.android.sudoku;
 
-/**
- * Created by alexa on 2017-11-29.
- */
-
-
 public class SudokuSolver {
     /**
      * Contains all digits in the grid.

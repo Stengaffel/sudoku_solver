@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_margin="10dp"
     android:orientation="vertical"
     tools:context="com.example.android.sudoku.MainActivity">
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/top_sudoku"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0"></android.support.constraint.Guideline>
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_sudoku"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68"></android.support.constraint.Guideline>
+
+    <android.support.constraint.Guideline
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/bottom_buttons"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.95"></android.support.constraint.Guideline>
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_text"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1"></android.support.constraint.Guideline>
 
     <RelativeLayout
         android:id="@+id/rel_lay"
         android:layout_width="match_parent"
-        android:layout_height="365dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_sudoku"
+        app:layout_constraintTop_toTopOf="@+id/top_sudoku"
         android:background="@drawable/customborder">
 
         <TableLayout
@@ -19,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="*"
-            android:layout_margin="1dp"
+            android:padding="1dp"
             >
         </TableLayout>
 
@@ -89,40 +119,45 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/button_row"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_buttons"
+        app:layout_constraintTop_toTopOf="@+id/bottom_sudoku"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:id="@+id/button_row"
+            android:id="@+id/top_row"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignTop="@id/rel_lay"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/top_row"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/bottom_row"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-            </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_row"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_text"
+        app:layout_constraintTop_toTopOf="@+id/bottom_buttons"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:text="SudokuSolver3000"
         android:textColor="@color/gray"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:fontFamily="casual"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center">
+        android:layout_marginTop="3dp">
     </TextView>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
 
